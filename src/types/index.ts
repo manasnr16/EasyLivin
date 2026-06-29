@@ -1,3 +1,9 @@
+export interface PropertyFeatures {
+  facilitiesAndConvenience?: string[]
+  interiorFeatures?: string[]
+  technologyAndEfficiency?: string[]
+}
+
 export interface Property {
   id: number
   title: string
@@ -15,6 +21,11 @@ export interface Property {
   sellerType: string
   img: string
   featured?: boolean
+  description?: string
+  yearBuilt?: number
+  garages?: number
+  propertyStatus?: string
+  features?: PropertyFeatures
 }
 
 export interface NavLink {

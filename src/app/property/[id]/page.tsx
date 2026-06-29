@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MapPin, BedDouble, Bath, Maximize2, CheckCircle, Phone, Mail } from 'lucide-react'
+import { MapPin, BedDouble, Bath, Maximize2, Phone, Mail, CalendarDays, CarFront, CheckCircle2 } from 'lucide-react'
 import { PROPERTIES } from '@/lib/data'
 import EnquiryModal from '@/components/ui/EnquiryModal'
 
@@ -87,16 +87,101 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 </div>
               </div>
 
-              {/* Description */}
-              <div>
-                <h2 className="font-semibold text-[15px] text-navy mb-3">About this property</h2>
-                <p className="text-slate-500 text-[13.5px] leading-relaxed">
-                  This is a premium {property.type.toLowerCase()} located in {property.location}. Listed
-                  by EasyLivin Goa, Goa&apos;s most trusted real estate platform with over 10 years of
-                  experience helping buyers find their perfect property. For more details and to arrange a
-                  viewing, please get in touch with us.
-                </p>
+              {/* ── Description ── */}
+              <div className="border-t border-slate-100 pt-6">
+                <h2 className="font-display font-semibold text-[1.1rem] text-navy mb-4">Description</h2>
+                <div className="text-slate-500 text-[13.5px] leading-relaxed space-y-3">
+                  {(property.description ?? `A premium ${property.type.toLowerCase()} located in ${property.location}. Contact EasyLivin Goa for more details and to arrange a viewing.`)
+                    .split('\n\n')
+                    .map((para, i) => <p key={i}>{para}</p>)}
+                </div>
               </div>
+
+              {/* ── Overview ── */}
+              <div className="border-t border-slate-100 pt-6">
+                <h2 className="font-display font-semibold text-[1.1rem] text-navy mb-4">Overview</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { icon: <span className="w-3 h-3 rounded-full bg-gold/80 inline-block" />, label: 'Type', value: property.type },
+                      { icon: <Bath size={14} className="text-gold" />, label: 'Bathrooms', value: property.baths != null ? String(property.baths) : '—' },
+                      { icon: <CarFront size={14} className="text-gold" />, label: 'Garage', value: property.garages != null ? String(property.garages) : '—' },
+                      { icon: <BedDouble size={14} className="text-gold" />, label: 'Rooms', value: property.beds != null ? String(property.beds) : '—' },
+                      { icon: <Maximize2 size={14} className="text-gold" />, label: 'Area Size', value: property.area },
+                      { icon: <CalendarDays size={14} className="text-gold" />, label: 'Year Built', value: property.yearBuilt ? String(property.yearBuilt) : '—' },
+                    ].map(({ icon, label, value }) => (
+                      <div key={label} className="bg-slate-50 rounded-lg px-4 py-3 flex items-center gap-3 border border-slate-100">
+                        <div className="flex-shrink-0">{icon}</div>
+                        <div>
+                          <p className="text-[11px] text-slate-400 leading-none mb-0.5">{label}</p>
+                          <p className="text-[13px] font-semibold text-navy">{value}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="rounded-xl overflow-hidden border border-slate-100 h-[200px] sm:h-auto min-h-[180px]">
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${encodeURIComponent(property.location + ', Goa, India')}&output=embed&z=14`}
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                      title={`Map showing ${property.location}`}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* ── Details ── */}
+              <div className="border-t border-slate-100 pt-6">
+                <h2 className="font-display font-semibold text-[1.1rem] text-navy mb-4">Details</h2>
+                <div className="rounded-xl border border-slate-100 overflow-hidden text-[13px]">
+                  {[
+                    [{ label: 'Price', value: property.price + (property.priceNote ?? '') }, { label: 'Property Size', value: property.area }],
+                    [{ label: 'Rooms', value: property.beds != null ? `${property.beds}` : '—' }, { label: 'Bathroom', value: property.baths != null ? `${property.baths}` : '—' }],
+                    [{ label: 'Garage', value: property.garages != null ? `${property.garages}` : '—' }, { label: 'Garage Size', value: property.garages ? `${property.garages * 200} Sq.Ft` : '—' }],
+                    [{ label: 'Year Built', value: property.yearBuilt ? String(property.yearBuilt) : '—' }, { label: 'Type', value: property.type }],
+                    [{ label: 'Property Status', value: property.propertyStatus ?? '—' }, { label: 'Location', value: property.location }],
+                  ].map((row, rowIdx) => (
+                    <div key={rowIdx} className={`grid grid-cols-2 divide-x divide-slate-100 ${rowIdx % 2 === 0 ? 'bg-slate-50/60' : 'bg-white'}`}>
+                      {row.map(({ label, value }) => (
+                        <div key={label} className="px-5 py-3 flex items-center justify-between gap-2">
+                          <span className="text-slate-400 font-medium">{label}</span>
+                          <span className="text-navy font-semibold text-right">{value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Features ── */}
+              {property.features && Object.values(property.features).some(arr => arr && arr.length > 0) && (
+                <div className="border-t border-slate-100 pt-6">
+                  <h2 className="font-display font-semibold text-[1.1rem] text-navy mb-4">Features</h2>
+                  <div className="space-y-5">
+                    {[
+                      { key: 'facilitiesAndConvenience', label: 'Facilities & Convenience' },
+                      { key: 'interiorFeatures', label: 'Interior Features' },
+                      { key: 'technologyAndEfficiency', label: 'Technology & Efficiency' },
+                    ].map(({ key, label }) => {
+                      const items = property.features?.[key as keyof typeof property.features]
+                      if (!items || items.length === 0) return null
+                      return (
+                        <div key={key}>
+                          <p className="text-[12px] font-bold tracking-wide uppercase text-slate-400 mb-2">{label}</p>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
+                            {items.map((item) => (
+                              <div key={item} className="flex items-center gap-2 text-slate-600 text-[13px]">
+                                <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
+                                {item}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}

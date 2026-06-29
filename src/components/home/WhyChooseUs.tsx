@@ -1,21 +1,26 @@
 import Image from 'next/image'
-import { ShieldCheck, Globe, Users } from 'lucide-react'
+import { Award, Globe, ShieldCheck, Users } from 'lucide-react'
 
 const REASONS = [
   {
-    icon: ShieldCheck,
-    title: 'Clean Titles Only',
-    desc: 'We vet every document before it ever reaches our listings, ensuring 100% legal compliance and zero surprises.',
+    icon: Award,
+    title: '25+ Years of Trusted Experience',
+    desc: 'With over two decades in Goa\'s real estate market, we provide expert guidance backed by knowledge, integrity, and proven results.',
   },
   {
     icon: Globe,
-    title: 'Off-Market Inventory',
-    desc: 'Access Goa\'s most exclusive homes that are never publicly listed. Our network is our greatest asset.',
+    title: 'Exclusive Goa Property Network',
+    desc: 'Gain access to premium and off-market opportunities through our strong local connections and trusted industry relationships.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Transparency & Legal Assurance',
+    desc: 'Every property is carefully verified to ensure clear titles, legal compliance, and complete peace of mind for our clients.',
   },
   {
     icon: Users,
-    title: 'End-to-End Support',
-    desc: 'From property selection to registration and beyond, we stay with you even after the keys are handed over.',
+    title: 'Personalized End-to-End Support',
+    desc: 'From property selection to registration and beyond, we offer dedicated assistance tailored to your unique needs and goals.',
   },
 ]
 
@@ -23,33 +28,38 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-white py-12">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-start">
 
           {/* Left: Founder image + quote */}
           <div>
-            <div className="rounded-2xl overflow-hidden h-[420px] relative">
+            <a
+              href="/images/Urmilla.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Urmilla Dias founder profile – opens PDF in new tab"
+              className="block h-[420px] relative cursor-pointer"
+            >
               <Image
                 src="/images/urmila.png"
-                alt="Urmilla Dias – Founder, EasyLivin Goa"
+                alt="Urmilla Dias – Founder of EasyLivin Goa, trusted real estate consultant with 25+ years of experience"
                 fill
-                className="object-cover object-top"
+                className="object-contain rounded-2xl"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-            </div>
+            </a>
             {/* Quote sits below the photo, not overlaying the face */}
             <div className="bg-gold-pale border-l-4 border-gold rounded-r-xl px-6 py-4 mt-4">
               <p className="font-display italic text-[1.05rem] text-navy leading-snug mb-2">
-                &ldquo;In Goa, the best deals aren&apos;t on billboards; they&apos;re found through
-                decades of local trust.&rdquo;
+                &ldquo;The best property decisions are built on trust, local expertise, and relationships that last a lifetime.&rdquo;
               </p>
               <p className="text-gold text-[12px] font-semibold tracking-wide">
-                — Urmilla Dias, Founder
+                — Urmilla Dias
               </p>
             </div>
           </div>
 
           {/* Right: Reasons */}
-          <div>
+          <div className="lg:pt-2">
             <span className="section-label mb-3 block">Expertise You Can Trust</span>
             <h2 className="font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold text-navy mb-7 leading-tight">
               Why Choose Us in Goa?

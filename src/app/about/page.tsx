@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const STATS = [
   { num: '1333+', label: 'Properties listed' },
-  { num: '10+', label: 'Years in Goa' },
+  { num: '25+', label: 'Years in Goa' },
   { num: '1000s', label: 'Families helped' },
   { num: '100%', label: 'Legal compliance' },
 ]
@@ -26,22 +26,28 @@ export default function AboutPage() {
             <span className="text-gold">About Us</span>
           </div>
           <h1 className="font-display text-[clamp(1.8rem,4vw,3rem)] font-semibold text-white mb-2">About EasyLivin</h1>
-          <p className="text-white/55 text-[14px]">Over a decade of trusted real estate consultancy across Goa.</p>
+          <p className="text-white/55 text-[14px]">Over 25 years of trusted real estate consultancy across Goa.</p>
         </div>
       </div>
 
       <section className="bg-white py-10">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-center">
 
             {/* Left image + stats */}
             <div>
-              <div className="rounded-2xl overflow-hidden h-[420px] relative">
+              <a
+                href="/images/Urmilla.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Urmilla Dias founder profile – opens PDF in new tab"
+                className="block h-[600px] relative cursor-pointer"
+              >
                 <Image
                   src="/images/urmila.png"
-                  alt="Urmilla Dias – Founder, EasyLivin Goa"
+                  alt="Urmilla Dias – Founder of EasyLivin Goa, trusted real estate consultant with 25+ years of experience"
                   fill
-                  className="object-cover object-top"
+                  className="object-contain rounded-2xl"
                   priority
                 />
                 {/* Name badge */}
@@ -49,7 +55,7 @@ export default function AboutPage() {
                   <p className="text-white font-semibold text-[13px] leading-none mb-0.5">Urmilla Dias</p>
                   <p className="text-gold text-[11px] tracking-wide">Founder - EasyLivin Goa</p>
                 </div>
-              </div>
+              </a>
               {/* Stats */}
               <div className="bg-navy rounded-xl p-6 mt-5 grid grid-cols-2 gap-5">
                 {STATS.map((s) => (
@@ -65,39 +71,50 @@ export default function AboutPage() {
             <div>
               <span className="section-label mb-3 block">Our Story</span>
               <h2 className="font-display text-[clamp(1.4rem,3vw,2rem)] font-semibold text-navy mb-6 leading-tight">
-                Your Best Guide to All Properties in Goa
+                Your Trusted Guide to Real Estate in Goa
               </h2>
               <div className="space-y-4 text-slate-500 text-[14px] leading-relaxed">
                 <p>
-                  Welcome to EasyLivin. Your best guide to all the properties in Goa. Your one stop shop
-                  for a piece of paradise you are looking out for. Be it an apartment, a beach house, a
-                  Portuguese house, farm land, industrial plot or shed or just a plot to build your dream
-                  house or township.
+                  At EasyLivin, we believe finding the perfect property should be an exciting and rewarding
+                  experience. Whether you&apos;re searching for a beachfront villa, a charming Portuguese home, an
+                  apartment, farmland, an investment property, or the ideal plot to build your dream home,
+                  we&apos;re here to guide you every step of the way.
                 </p>
                 <p>
-                  We also help you to find a customer for your precious properties with the right price tag
-                  that will make you smile. We will be by your side from choosing your property, checking
-                  out its credentials till registration of sale deed.
+                  With years of experience and deep local market knowledge, we help buyers discover
+                  exceptional opportunities and assist property owners in connecting with the right buyers at
+                  the right value. Our expertise extends beyond property search—we provide complete support,
+                  from property selection and due diligence to documentation and registration.
                 </p>
                 <p>
-                  We have been serving the people of Goa for over 10 years and have helped thousands of
-                  families to find the right home to make their own. As an experienced Real Estate
-                  Consultant, we have the expertise to understand the value of a home or property and guide
-                  you to take the right decision while buying or renting a property.
+                  Led by Urmilla Dias, a trusted name in Goa&apos;s real estate market with over 25 years of
+                  industry experience, EasyLivin is built on a foundation of trust, transparency, and
+                  long-term relationships. We have helped countless families, investors, and homeowners make
+                  confident property decisions while navigating Goa&apos;s unique real estate landscape.
                 </p>
                 <p>
-                  Whether you are selling the much loved family home or experiencing the excitement of buying
-                  your very first home, the decisions you need to make and the challenges you will face
-                  require considerable research, planning and guidance — and EasyLivin will be at your
-                  beacon through it all.
+                  Whether you&apos;re buying your first home, investing in a holiday retreat, or selling a
+                  cherished family property, EasyLivin is committed to making your journey seamless, secure,
+                  and successful.
                 </p>
+              </div>
+
+              {/* Our Promise */}
+              <div className="mt-6">
+                <h3 className="font-semibold text-[14px] text-navy mb-3">Our Promise</h3>
+                <ul className="space-y-2">
+                  {['Expert Local Knowledge', 'Personally Verified Properties', 'Transparent & Honest Guidance', 'End-to-End Support'].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-slate-500 text-[13px]">
+                      <span className="text-gold font-bold">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Quote */}
               <div className="mt-8 bg-gold-pale border-l-4 border-gold rounded-r-xl px-6 py-5">
                 <p className="font-display italic text-[1.1rem] text-navy leading-relaxed mb-3">
-                  &ldquo;In Goa, the best deals aren&apos;t on billboards; they&apos;re found through
-                  decades of local trust.&rdquo;
+                  &ldquo;In Goa, the best opportunities aren&apos;t advertised—they&apos;re discovered through local expertise, trusted relationships, and years of market experience.&rdquo;
                 </p>
                 <p className="text-[12px] font-semibold text-slate-500 tracking-wide uppercase">
                   — Urmilla Dias, Founder

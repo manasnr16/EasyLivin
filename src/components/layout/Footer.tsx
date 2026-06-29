@@ -104,9 +104,9 @@ export default function Footer() {
                   <MapPin size={14} className="text-gold" />
                 </div>
                 <p className="text-white/65 text-[14px] leading-relaxed">
-                  A-T17, Campal Trade Centre, 3rd Floor,<br />
-                  Opposite Kala Academy, Campal,<br />
-                  Panjim Goa – 403001
+                  A-T-16, Campal Trade Center,<br />
+                  Opposite Kala Academy, 3rd Floor, Campal,<br />
+                  Panjim, Goa – 403004
                 </p>
               </div>
               <div className="flex gap-3 items-center">
@@ -130,7 +130,7 @@ export default function Footer() {
                 <div className="w-9 h-9 bg-gold/10 rounded flex items-center justify-center flex-shrink-0">
                   <Clock size={14} className="text-gold" />
                 </div>
-                <p className="text-white/65 text-[14px]">Mon – Sat, 8:30 am – 6:30 pm</p>
+                <p className="text-white/65 text-[14px]">Mon – Sat, 9:00 am – 6:00 pm</p>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Footer() {
         <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-center sm:text-left">
             <span className="text-white/40 text-[12px]">
-              Copyright &copy; 2026, EasyLivin, Real Estate Consultant. All rights reserved.
+              Copyright &copy; 2026, Easy Livin Goa -  real estate  consultants. All rights reserved.
             </span>
             <span className="text-white/20 text-[12px] mx-2 hidden sm:inline">|</span>
             <span className="text-white/30 text-[12px] block sm:inline mt-0.5 sm:mt-0">

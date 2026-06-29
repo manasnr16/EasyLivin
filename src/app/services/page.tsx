@@ -1,19 +1,53 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Paintbrush, Scale, CreditCard, Building2, BarChart3, Globe } from 'lucide-react'
+import { Paintbrush, Scale, CreditCard, Building2, BarChart3, Globe, Home, Tag } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Our Services',
-  description: 'EasyLivin Goa offers interior design, legal services, loan assistance, property management, valuation and NRI services.',
+  description: 'EasyLivin Goa offers interior design, legal services, loan assistance, property management, valuation, NRI services, buying assistance and selling services.',
 }
 
 const SERVICES = [
-  { icon: Paintbrush, title: 'Interior Design', desc: 'Transform your new property with curated interior design packages — from budget-friendly to premium luxury. Our network of trusted designers specialise in Goa\'s unique aesthetic.', href: '/services/interior' },
-  { icon: Scale, title: 'Legal Services', desc: 'Hassle-free property registration, title verification, and legal documentation by certified experts. We ensure every transaction is legally sound before you commit.', href: '/services/legal' },
-  { icon: CreditCard, title: 'Loan Assistance', desc: 'Get the best home loan offers with instant eligibility checks and zero-documentation paperwork. We work with leading banks and NBFCs to get you the right rate.', href: '/services/loans' },
-  { icon: Building2, title: 'Property Management', desc: 'Let us manage your rental properties — from tenant screening to maintenance, rent collection and more. Ideal for NRI investors and second home owners.', href: '/services/management' },
-  { icon: BarChart3, title: 'Valuation Services', desc: 'Get a professional market valuation of your Goa property from our experienced consultants before buying, selling, or leasing.', href: '/services/valuation' },
-  { icon: Globe, title: 'NRI Services', desc: 'Dedicated assistance for Non-Resident Indians looking to invest in Goa. We handle everything remotely — from property search to registration — so you can invest with confidence from anywhere in the world.', href: '/services/nri' },
+  {
+    icon: Paintbrush,
+    title: 'Interior Design',
+    desc: 'Transform your property into a beautiful and functional living space with customized interior solutions. From modern apartments to luxury villas, our trusted design partners bring your vision to life.',
+  },
+  {
+    icon: Scale,
+    title: 'Legal Services',
+    desc: 'Buy and sell with confidence through expert legal guidance, title verification, due diligence, documentation, and registration support. We help ensure every transaction is secure and hassle-free.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Loan Assistance',
+    desc: 'Finding the right home loan is easier with our banking partners. We assist with eligibility checks, documentation, and loan processing to help you secure the best financing options.',
+  },
+  {
+    icon: Building2,
+    title: 'Property Management',
+    desc: 'Whether you\'re an NRI investor or a second-home owner, we take care of your property with tenant management, maintenance coordination, rent collection, and regular updates.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Property Valuation',
+    desc: 'Know the true market value of your property before buying, selling, or investing. Our local market expertise helps you make informed real estate decisions.',
+  },
+  {
+    icon: Globe,
+    title: 'NRI Services',
+    desc: 'Invest in Goa from anywhere in the world with complete peace of mind. We provide end-to-end assistance, from property discovery and virtual tours to legal formalities and registration.',
+  },
+  {
+    icon: Home,
+    title: 'Property Buying Assistance',
+    desc: 'Discover the best properties in Goa with expert guidance tailored to your lifestyle and investment goals. We help you identify, evaluate, and secure the right property with confidence.',
+  },
+  {
+    icon: Tag,
+    title: 'Property Selling Services',
+    desc: 'Reach serious buyers and maximize your property\'s value through our marketing expertise and local network. We manage the process from listing to successful closure.',
+  },
 ]
 
 export default function ServicesPage() {
@@ -34,15 +68,15 @@ export default function ServicesPage() {
       <section className="bg-white py-14">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map(({ icon: Icon, title, desc, href }) => (
+            {SERVICES.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="group border border-slate-100 rounded-xl p-7 hover:shadow-xl hover:border-gold/30 transition-all duration-300">
                 <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
                   <Icon size={20} className="text-gold" />
                 </div>
                 <h3 className="font-semibold text-[15px] text-navy mb-3">{title}</h3>
                 <p className="text-slate-400 text-[13px] leading-relaxed mb-5">{desc}</p>
-                <Link href={href} className="text-gold text-[11px] font-bold tracking-wide uppercase hover:underline inline-flex items-center gap-1">
-                  Learn More →
+                <Link href="/contact" className="text-gold text-[11px] font-bold tracking-wide uppercase hover:underline inline-flex items-center gap-1">
+                  Contact Our Team →
                 </Link>
               </div>
             ))}

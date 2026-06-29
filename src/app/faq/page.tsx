@@ -32,7 +32,7 @@ const FAQS = [
   },
   {
     q: "What are EasyLivin's working hours?",
-    a: 'Our office is open Monday to Saturday, 8:30 am to 6:30 pm. You can also reach Urmilla Dias directly on 88888 06964 for urgent enquiries outside office hours.',
+    a: 'Our office is open Monday to Saturday, 9:00 am to 6:00 pm. You can also reach Urmilla Dias directly on 88888 06964 for urgent enquiries outside office hours.',
   },
   {
     q: 'Do you arrange property viewings?',
